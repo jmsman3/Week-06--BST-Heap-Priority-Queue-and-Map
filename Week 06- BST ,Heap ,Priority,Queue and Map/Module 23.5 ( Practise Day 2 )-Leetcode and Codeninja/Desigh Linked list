@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class MyLinkedList
+{
+public:
+    list<int> linkedList;
+
+    MyLinkedList() {}
+
+    int get(int index)
+    {
+        if (index < 0 || index >= linkedList.size())
+        {
+            return -1; // Invalid index
+        }
+
+        auto it = next(linkedList.begin(), index);
+        return *it;
+    }
+
+    void addAtHead(int val)
+    {
+        linkedList.push_front(val);
+    }
+
+    void addAtTail(int val)
+    {
+        linkedList.push_back(val);
+    }
+
+    void addAtIndex(int index, int val)
+    {
+        if (index < 0 || index > linkedList.size())
+        {
+            return;
+        }
+
+        auto it = next(linkedList.begin(), index);
+        linkedList.insert(it, val);
+    }
+
+    void deleteAtIndex(int index)
+    {
+        if (index < 0 || index >= linkedList.size())
+        {
+            return;
+        }
+
+        auto it = next(linkedList.begin(), index);
+        linkedList.erase(it);
+    }
+};
